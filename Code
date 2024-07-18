@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parth Bilgaiyan - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0); /* Updated background gradient */
+        }
+
+        h1 {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            font-size: 3em;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: #000000;
+            padding: 0.5rem 1rem;
+            position: relative;
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+            border: 2px solid #000000;
+            border-radius: 25px;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+            background-color: #000000;
+            transform: scale(1.1);
+        }
+
+        nav a:nth-child(4) {
+            margin-right: 20px; /* Adjusted spacing between Contact and Connect buttons */
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: transparent; /* Updated to transparent */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .animated-headline {
+            font-size: 1.5em;
+            margin: 20px 0 0 0;
+            font-family: 'Source Code Pro', monospace;
+            border-right: 2px solid black;
+            white-space: nowrap;
+            overflow: hidden;
+            max-width: fit-content;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: black }
+        }
+
+        .section {
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+            font-family: 'Source Code Pro', monospace;
+            background-color: #ffffff;
+            margin: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .project h3 {
+            font-family: 'Source Code Pro', monospace;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #000000;
+            color: #ffffff;
+            position: relative;
+            width: 100%;
+        }
+
+        .github-btn {
+            display: inline-block;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 20px;
+            color: #fff;
+            background-color: #2ea44f;
+            border: 1px solid rgba(27, 31, 35, .15);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .github-btn:hover {
+            background-color: #2c974b;
+        }
+
+        #about h2 {
+            animation: slideFromLeft 1s ease-out;
+        }
+
+        #projects h2 {
+            animation: popIn 0.5s ease-out;
+        }
+
+        #blogs h2 {
+            animation: fadeInRotate 1s ease-out;
+        }
+
+        #contact h2 {
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        #connect {
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+            background-color: #ffffff;
+            margin: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left; /* Align content to the left */
+        }
+
+        #connect.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #connect p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        @keyframes slideFromLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            80% { transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeInRotate {
+            0% { opacity: 0; transform: rotate(-45deg); }
+            100% { opacity: 1; transform: rotate(0); }
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: translateY(-50px); }
+            60% { transform: translateY(10px); }
+            80% { transform: translateY(-5px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>< hi, i'm Parth /></h1>
+        <p class="animated-headline"></p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#blogs">Blogs</a>
+        <a href="#skills">Skills</a>
+        <a href="#connect">Connect</a> <!-- New Connect button -->
+    </nav>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p class="show">I'm a final-year Bachelor's student at Medi-caps University, navigating the challenges of learning while balancing a passion for coding and the occasional existential crisis. I thrive on problem-solving and late-night coding sessions, constantly seeking ways to innovate and improve. Let's connect and brainstorm how we can make meaningful impacts in the tech world together.</p>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>
+                Restaurant Management System - Backend
+                <a href="https://github.com/yourusername/restaurant-management" class="github-btn">View on GitHub</a>
+            </h3>
+            <p class="show">Built with GoLang and MongoDB, this system optimizes restaurant operations through efficient backend processes, ensuring seamless management of orders, inventory, and customer data.</p>
+        </div>
+        <div class="project">
+            <h3>
+                Fitsense AI
+                <a href="https://github.com/yourusername/fitsense-ai" class="github-btn">View on GitHub</a>
+            </h3>
+            <p class="show">Utilizing Python and NLP, Fitsense AI analyzes user input to provide personalized fitness recommendations, enhancing user experience through intelligent data-driven insights.</p>
+        </div>
+        <div class="project">
+            <h3>
+                CI/CD Automation
+                <a href="https://github.com/yourusername/cicd-automation" class="github-btn">View on GitHub</a>
+            </h3>
+            <p class="show">Implemented automated CI/CD pipelines to streamline software development cycles, ensuring rapid deployment, testing, and integration of code changes across diverse environments.</p>
+        </div>
+    </section>
+
+    <section id="blogs" class="section">
+        <h2>Blogs</h2>
+        <div class="blog">
+            <h3>Exploring AI in Healthcare</h3>
+            <p class="show">Delved into the application of AI and machine learning in revolutionizing healthcare diagnostics and patient care, showcasing the potential and challenges of these technologies.</p>
+        </div>
+        <div class="blog">
+            <h3>The Future of Cloud Computing</h3>
+            <p class="show">Examined the evolving landscape of cloud computing, discussing trends, innovations, and the impact of cloud technologies on businesses and everyday life.</p>
+        </div>
+    </section>
+
+    <section id="Skills" class="section">
+        <h2>Skills</h2>
+        <p><b>Language:</b> C/ C++, Python, Java, HTML, CSS, Javascript, Golang</p>
+        <p><b>Libraries:</b> C++ STL, Python Libraries, Java Collection Framework, ReactJs, Golang Libraries</p>
+        <p><b>Web Dev Tools:</b> Git, NodeJs, Github, VScode, Docker, Kubernetes, Helm</p>
+        <p><b>Cloud and Databases:</b> AWS, GCP, MySQL, PostgreSQL, MongoDB, Oracle</p>
+        <p><b>Relevant Course:</b> Data Structures and Algorithms, Operating Systems, Database Management System, OOPs, Software Engineering</p>
+        <p><b>Soft Skills:</b> Problem Solving, Self-learning, Presentation, Adaptability</p>
+    </section>
+
+    <section id="connect" class="section">
+        <h2>Let's Connect</h2>
+        <p>Twitter: <a href="https://twitter.com/parthtweeets" style="color: #000000;">@parthtweeets</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/https://www.linkedin.com/in/parth-bilgaiyan-05248b245/" style="color: #000000;">Parth Bilgaiyan</a></p>
+        <p>Email: parthbilgaiyan.work@gmail.com</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Parth Bilgaiyan. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const sections = document.querySelectorAll('.section');
+            const animatedHeadline = document.querySelector('.animated-headline');
+            const text = "Error 404: Full Stack Developer found";
+            let i = 0;
+
+            function typeWriter() {
+                if (i < text.length) {
+                    animatedHeadline.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                } else {
+                    animatedHeadline.style.animation = "blink-caret 0.75s step-end infinite";
+                }
+            }
+
+            typeWriter();
+
+            function checkViewport() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    if (rect.top < windowHeight && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    } else {
+                        section.classList.remove('visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkViewport);
+            window.addEventListener('resize', checkViewport);
+            checkViewport();
+        });
+    </script>
+</body>
+</html>

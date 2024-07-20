@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parth Bilgaiyan - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero">
+        <h1><span id="greeting"></span></h1>
+        <p class="animated-headline"></p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#blogs">Blogs</a>
+            <a href="#skills">Skills</a>
+            <a href="#connect">Connect</a>
+        </nav>
+    </header>
+
+    <div class="content-wrapper">
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p class="show">I'm a final-year Bachelor's student at Medi-caps University, navigating the challenges of learning while balancing a passion for coding and the occasional existential crisis. I thrive on problem-solving and late-night coding sessions, constantly seeking ways to innovate and improve. Let's connect and brainstorm how we can make meaningful impacts in the tech world together.</p>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Restaurant Management System <a href="https://github.com/parthb26/Restaurant-Management-Backend" class="github-btn" target="_blank">GitHub</a></h3>
+                <p>A backend system for managing restaurant operations, built with Golang and MongoDB.</p>
+            </div>
+            <div class="project">
+                <h3>Fitsense AI <a href="https://github.com/parthb26/Fit-Sense-AI" class="github-btn" target="_blank">GitHub</a></h3>
+                <p>An AI-driven fitness assistant developed using Python and NLP to provide personalized workout plans.</p>
+            </div>
+            <div class="project">
+                <h3>CI/CD Automation <a href="https://github.com/parthb26/CI-CD-Automation" class="github-btn" target="_blank">GitHub</a></h3>
+                <p>Automated CI/CD pipeline using industry-standard tools to streamline development workflows.</p>
+            </div>
+            <div class="project">
+                <h3>Zapier Clone <a href="https://github.com/parthb26/Zapier-Clone" class="github-btn" target="_blank">GitHub</a></h3>
+                <p>Building Zapier, which is backend-to-backend route of communication.</p>
+            </div>
+        </section>
+
+        <section id="blogs" class="section">
+            <h2>Blogs</h2>
+            <div class="blog-post">
+                <h3>All about DevOps <a href="#" class="blog-btn" onclick="openBlogPage('power-of-learning'); return false;">Read More</a></h3>
+                <p>Embrace the transparency of learning in public and watch how it accelerates your growth and connects you with a community of like-minded individuals.</p>
+            </div>
+            <div class="blog-post">
+                <h3>Breaking Down Complex Problems <a href="#" class="blog-btn" onclick="openBlogPage('breaking-down-problems'); return false;">Read More</a></h3>
+                <p>Dive into strategies for simplifying and conquering complex problems, turning them into manageable tasks.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <ul>
+                <li><b>Languages: </b>C/C++, Python, Java, HTML, CSS, Jacascript, Golang</li>
+                <li><b>Libraries: </b>C++ STL, Python Libraries, Java Collection Framework, ReactJs, Golang Libraries</li>
+                <li><b>Web Development Tools: </b>Git, NodeJs, Github, VSCode, Docker, Kubernetes, Helm</li>
+                <li><b>Cloud and Databases: </b>AWS, GCP, MySQL, PostgreSQL, MongoDB, Oracle</li>
+                <li><b>Relevant Courses: </b>Data Structures & Algorithms, Operating Systems, DBMS, OOPs, Software Engineering</li>
+                <li><b>Soft Skills: </b>Problem Solving, Self-learning, Presentation, Adaptabilty</li>
+            </ul>
+        </section>
+
+        <section id="connect" class="section">
+            <h2>Connect</h2>
+            <p>Interested in collaborating or discussing tech innovations? Let's connect!</p>
+            <p>Email: parthbilgaiyan.work@gmail.com</p>
+            <p>LinkedIn: linkedin.com/in/parthbilgaiyan</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Parth Bilgaiyan. All rights reserved.</p>
+    </footer>
+
+    <!-- Error Message -->
+    <div id="error-message" class="error-message">
+        Error: A Full Stack Developer found!
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

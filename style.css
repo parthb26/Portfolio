@@ -115,21 +115,12 @@ nav a:nth-child(4) {
 
 .project:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .project h3 {
-    font-family: 'Source Code Pro', monospace;
-    font-weight: 600;
-}
-
-.github-btn {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.github-btn:hover {
-    text-decoration: underline;
+    font-size: 1.2em;
+    margin-bottom: 0.5rem;
 }
 
 .blog-post {
@@ -142,40 +133,53 @@ nav a:nth-child(4) {
 
 .blog-post:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
-.blog-btn {
-    color: #007bff;
-    text-decoration: none;
+.blog-post h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.5rem;
 }
 
-.blog-btn:hover {
-    text-decoration: underline;
+ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.error-message {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #f8d7da;
-    color: #721c24;
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: none;
-    z-index: 1000;
+ul li {
+    margin-bottom: 1rem;
 }
 
 footer {
-    padding: 1rem;
     text-align: center;
-    background-color: #ffffff;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.error-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ffcccc;
+    color: #cc0000;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.error-message.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 2.5em;
+        font-size: 3em;
     }
 
     nav {
@@ -184,5 +188,9 @@ footer {
 
     nav a {
         margin: 0.5rem 0;
+    }
+
+    .section {
+        margin: 2rem 1rem;
     }
 }

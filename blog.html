@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parth Bilgaiyan - Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Code Pro', monospace;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-top: 50px;
+        }
+        .blog-content {
+            margin-top: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #2c3e50;
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #34495e;
+        }
+        .dynamic-box {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .dynamic-box h2 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="goBack()">Back</button>
+    <h1 id="blog-title"></h1>
+    <div id="blog-content" class="dynamic-box"></div>
+
+    <script>
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = '/'; // Redirect to home or another fallback page
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const blogId = urlParams.get('id');
+
+            const blogData = {
+                'power-of-learning': {
+                    title: "Understanding DevOps",
+                    content: `<h2>Understanding DevOps</h2>
+                              <p>This Blog is currently in progress. Stay tuned for updates!</p>`
+                },
+                'breaking-down-problems': {
+                    title: "Breaking Down Complex Problems",
+                    content: `<h2>Breaking Down Complex Problems</h2>
+                              <p>This Blog is currently in progress. Stay tuned for updates!</p>`
+                }
+            };
+
+            if (blogData[blogId]) {
+                document.getElementById('blog-title').textContent = blogData[blogId].title;
+                document.getElementById('blog-content').innerHTML = blogData[blogId].content;
+            } else {
+                document.getElementById('blog-title').textContent = "Blog Not Found";
+                document.getElementById('blog-content').innerHTML = "<p>Sorry, the requested blog post does not exist.</p>";
+            }
+        });
+    </script>
+</body>
+</html>

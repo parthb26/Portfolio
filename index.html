@@ -83,18 +83,21 @@
             margin: 20px auto 0;
             font-family: 'Raleway', sans-serif;
             font-weight: 300;
-            border-right: 2px solid black;
-            white-space: nowrap;
+            border-right: none; /* Make the right border invisible */
+            white-space: normal; /* Allow text to wrap */
             overflow: hidden;
+            width: 100%; /* Take full width of the container */
             max-width: 90vw;
             position: absolute;
             top: 100px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
+            transform: translateX(0);
             z-index: 2;
             text-align: center;
             padding: 0 10px;
+            box-sizing: border-box; /* Include padding in width calculation */
         }
+
 
         .section {
             padding: 2rem;
@@ -126,7 +129,7 @@
         }
 
         .project h3, .blog-post h3 {
-            font-family: 'Raleway', sans-serrif;
+            font-family: 'Raleway', sans;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -314,7 +317,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const greetingText = " <\u00A0hi, i'm\u00A0Parth\u00A0/>";
+            const greetingText = "hi, i'm\u00A0Parth";
             const greetingElement = document.getElementById('greeting');
             let index = 0;
 
@@ -384,6 +387,7 @@
                 observer.observe(section);
             });
         });
+
 
         function openBlogPage(blogId) {
             window.open('blog.html?id=' + blogId, '_blank');

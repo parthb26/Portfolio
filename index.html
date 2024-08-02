@@ -353,9 +353,11 @@
                     letterIndex++;
                     setTimeout(typeHeadline, 70);
                 } else {
+                    setTimeout(() => {
                     setTimeout(eraseHeadline, 30);
-                }
+                }, 1000);
             }
+        }
 
             function eraseHeadline() {
                 if (letterIndex > 0) {
